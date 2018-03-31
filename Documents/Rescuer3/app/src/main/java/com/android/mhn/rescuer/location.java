@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,23 +22,17 @@ import java.util.Locale;
 
 public class location extends AppCompatActivity {
     FusedLocationProviderClient mFusedLocationClient;
-    Double lat, lng;
-//    Button gomapper;
+    Double lat, longi;
+    Button gomapper;
     Geocoder geocoder;
     List<Address> addresses;
+    //Double lat,longi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-/*
-        gomapper=  findViewById(R.id.tomapper);
-        gomapper.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent tomaps = new Intent(location.this, MapsActivity.class);
-                startActivity(tomaps);
-            }
-        });
-*/
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
@@ -52,7 +47,8 @@ public class location extends AppCompatActivity {
                             // Logic to handle location object
                             System.out.println("location latitude" + location.getLatitude());
                             System.out.println("location longitude" + location.getLongitude());
-
+                            lat=location.getLatitude();
+                            longi= location.getLongitude();
                             geocoder = new Geocoder(com.android.mhn.rescuer.location.this, Locale.getDefault());
 
                             try {
@@ -60,6 +56,27 @@ public class location extends AppCompatActivity {
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
+
+                            gomapper=  findViewById(R.id.tomapper);
+                            gomapper.setOnClickListener(new View.OnClickListener(){
+                                @Override
+                                public void onClick(View v){
+
+
+                                    // Create a Uri from an intent string. Use the result to create an Intent.
+                                  Uri gmmIntentUri = Uri.parse("geo:"+lat+","+longi);
+                                    //Uri gmmIntentUri = Uri.parse("geo:"+lat+","+"0.013988");
+                                    //Uri gmmIntentUri = Uri.parse("google.streetview:cbll=46.414382,10.013988");
+
+                                    // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
+                                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                                    // Make the Intent explicit by setting the Google Maps package
+                                    mapIntent.setPackage("com.google.android.apps.maps");
+
+                                    // Attempt to start an activity that can handle the Intent
+                                    startActivity(mapIntent);
+                                }
+                            });
 
                             String address = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
                             TextView add = (TextView)findViewById(R.id.address);
