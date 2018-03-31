@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Rescuer</string>
+
+    <string name="sos_text">Help has been called</string>
+    <string name="report">Report</string>
+    <string name="tutorial">tutorial</string>
+    <string name="sos_button">press when in danger</string>
+
+    <integer-array name="suspect_count">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </integer-array>
+    <string name="title_activity_maps">Map</string>
+</resources>

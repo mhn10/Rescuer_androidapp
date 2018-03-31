@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".robbery">
+
+    <TextView
+        android:id="@+id/Robbery_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:lineSpacingExtra="12sp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="5dp"
+        android:text="Robbery Details"
+        android:textColor="?attr/actionMenuTextColor"
+        android:textSize="36sp" />
+
+    <CheckBox
+        android:id="@+id/loss_prop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:padding="12dp"
+        android:text="Loss of property" />
+
+    <CheckBox
+        android:id="@+id/personal_injury"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:elevation="7dp"
+        android:fadeScrollbars="false"
+        android:fadingEdge="vertical"
+        android:padding="12dp"
+        android:text="Personal Injury"
+        android:visibility="visible" />
+
+    <EditText
+        android:id="@+id/suspect_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="enter number of suspects"
+        android:inputType="number"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:singleLine="false" />
+
+    <CheckBox
+        android:id="@+id/suspect_armed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:padding="12dp"
+        android:text="Was suspect Armed " />
+
+    <EditText
+        android:id="@+id/robbery_desc"
+        android:layout_width="match_parent"
+        android:layout_height="254dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="Enter description (optional)"
+        android:inputType="text|textPersonName"
+        android:padding="15dp" />
+
+    <Button
+        android:id="@+id/report_rob_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:text="Submit" />
+
+</LinearLayout>
