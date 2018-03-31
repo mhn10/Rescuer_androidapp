@@ -5,13 +5,28 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class robbery_details extends AppCompatActivity {
-
+    TextView text1,text2,text3,text4, text5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_robbery_details);
-       // TextView textView = (TextView)findViewById(R.id.textview_rob_det);
+        text1=findViewById(R.id.text_loss);
+        text2=findViewById(R.id.text_arm);
+        text3=findViewById(R.id.text_inj);
+        text4=findViewById(R.id.desc);
+        text5=findViewById(R.id.people);
 
-       // textView.setText(getIntent().getExtras().getString("LOSS"));
+
+        Boolean check1 = getIntent().getExtras().getBoolean("loss");
+        Boolean check2 = getIntent().getExtras().getBoolean("injury");
+        Boolean check3 = getIntent().getExtras().getBoolean("armed");
+
+
+        text1.setText("Suffered Loss:"+check1.toString());
+        text2.setText("Suffered Injury:"+check2.toString());
+        text3.setText("Armed: "+check3.toString());
+
+        text4.setText("Desc:"+getIntent().getExtras().getString("descriptor"));
+        text4.setText("Number of Assaulter:"+getIntent().getExtras().getString("no"));
     }
 }

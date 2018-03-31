@@ -26,14 +26,13 @@ public class robbery extends AppCompatActivity {
         suspect_count.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         suspect_count_spinner.setAdapter(suspect_count);
 */
-/*
 
-         final CheckBox prop_loss = findViewById(R.id.loss_prop);
-        final CheckBox personal_injury = findViewById(R.id.personal_injury);
-        final CheckBox armed= findViewById(R.id.suspect_armed);
-          final EditText susnum = findViewById(R.id.suspect_count);
-        final EditText desc = findViewById(R.id.robbery_desc);
-*/
+        prop_loss = (CheckBox)findViewById(R.id.loss_prop);
+         personal_injury = (CheckBox)findViewById(R.id.personal_injury);
+         armed = (CheckBox)findViewById(R.id.suspect_armed);
+         desc= (EditText)findViewById(R.id.robbery_desc);
+         susnum= (EditText)findViewById(R.id.suspect_count);
+
         submit_robbery= findViewById(R.id.report_rob_button);
 
         submit_robbery.setOnClickListener(new View.OnClickListener() {
@@ -45,9 +44,11 @@ public class robbery extends AppCompatActivity {
 
 
                 Intent robberyintent = new Intent(robbery.this, robbery_details.class);
-                //getIntent().putExtra("LOSS",loss);
-               // getIntent().putExtra("INJ",inj);
-                //getIntent().putExtra("LOSS",loss);
+                robberyintent.putExtra("loss", prop_loss.isChecked());
+                robberyintent.putExtra("injury", personal_injury.isChecked());
+                robberyintent.putExtra("armed", armed.isChecked());
+                robberyintent.putExtra("descriptor", desc.getText().toString());
+                robberyintent.putExtra("no", susnum.getText().toString());
                 startActivity(robberyintent);
             }
         });
